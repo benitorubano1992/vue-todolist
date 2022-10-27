@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" class="container">
+        <header>
+            <div class="logo">
+                <img src="img/logo copia.png" alt="logo Boolean">
+                <h1>Boolean</h1>
+            </div>
+            <div class="box-inter">
+                <label for="user-input"></label>
+                <input type="text" id="user-input" v-model="userInput" placeholder="Enter your activity" @keyup.enter="enterNewActivity">
+                <button @click="enterNewActivity"> Enter new Activity</button>
+                <div class="error" :class="isUserValid ? 'none':'block'">
+                    <small>{{errorMessagge}}</small>
+                </div>
+            </div>
+    </header>
+    <div class="list-container">
+        <ul>
+            <li v-for="(item,index) in list"> 
+                <span :class="{check:item.done}" @click="checkElement(index)">{{item.text}}</span>
+                <span @click="deleteActivity(index)">&cross;</span>
+            </li>
+           
+        </ul>
+    </div>
+        
+    </div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
